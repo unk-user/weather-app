@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;800&display=swap');
+
+
+body {
+    color: white;
+    font-family: rubik;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px) brightness(0.6);
+    background: url('assets/valentin-muller-bWtd1ZyEy6w-unsplash.jpg')  no-repeat fixed center / 160%;
+}
+
+#main {
+    height: 90vmin;
+    width: 160vmin;
+    backdrop-filter: brightness(0.5);
+    background: url('assets/valentin-muller-bWtd1ZyEy6w-unsplash.jpg') no-repeat fixed center / 90%;
+    display: flex;
+    gap: 0;
+    border: 12px solid rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+}
+
+#left-section {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    width: 285px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px 0;
+}
+#current-temp {
+    font-size: 4.5rem;
+    font-weight: 500;
+    margin: 17px 0 0 0;
+}
+#wind-velocity {
+    margin: 0;
+}
+#current-weather {
+    text-align: center;
+}
+#forecast-days-container {
+    border-top: 1px solid white;
+    width: 230px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#forecast-days-container > h2{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+#forecast-days {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.forecast-day {
+    display: flex;
+    align-items: center;
+    width: 230px;
+    gap: 5px;
+    margin-right: 5px;
+}
+.forecast-temp {
+    margin-left: auto;
+    border-left: 1px solid white;
+    padding-left: 8px;
+    width: 30px;
+}
+.forecastDay-icon {
+    width: 50px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#right-section {
+    width: calc(160vmin - 285px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding: 35px 30px;
+}
+#date-time {
+    margin-bottom: auto;
+    font-size: 1.1rem;
+    display: flex;
+    gap:8px;
+}
+#time {
+    padding-right: 8px;
+    border-right: 1px solid black;
+}
+#track-container {
+    overflow-x: hidden;
+    overflow-y: visible;
+    height: 160px;
+    display: flex;
+    align-items: center;
+}
+#forecast-today {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateX(0);
+}
+#condition {
+    font-size: 4rem;
+    font-weight: 400;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.hourContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.521);
+    border-radius: 8px;
+    user-select: none;
+    transition: 250ms;
+}
+.hourContainer:hover {
+    transform: scale(1.05);
+}
+.forecast-hour {
+    margin: 10px;
+    width: 70px;
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+
+}
+.hourTemp {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+.hourConditionIcon {
+    width: 50px;
+    aspect-ratio: 1 / 1;
+    background-color: rgba(128, 128, 128, 0.521);
+    border-radius: 5px;
+    user-select: none;
+}
+.forecast-max, .forecast-min {
+    text-align: center;
+}

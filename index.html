@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Weather App</title>
+</head>
+<body>
+    
+    <section id="main">
+        <div id="left-section">
+
+            <div id="searchbar">
+                <input type="search" id="location" placeholder=''>
+            </div>
+            <div id="current-weather">
+                <h1 id="current-temp"></h1>
+                <p id="wind-velocity"></p>
+            </div>
+            <div id="forecast-days-container">
+                <h2>Next Days Forecast</h2>
+                <div id="forecast-days"></div>
+            </div>
+
+        </div>
+        <div id="right-section">
+            <div id="date-time">
+                <div id="time"></div>
+                <div id="date"></div>
+            </div>
+            <div id="condition"></div>
+            <div id="track-container">
+                <div id="forecast-today"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
