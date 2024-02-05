@@ -7,7 +7,9 @@ class WeatherService {
         try {
             const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${this.apiKey}&q=${city}&days=5`;
 
-            const response = await fetch(apiUrl);
+            const response = await fetch(apiUrl, {
+                mode: 'cors'
+            });
             const data = await response.json();
 
             return data;
