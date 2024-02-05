@@ -12,29 +12,52 @@ body {
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(5px) brightness(0.6);
-    background: url('assets/valentin-muller-bWtd1ZyEy6w-unsplash.jpg')  no-repeat fixed center / 160%;
+    transition: 6s;
+    background-position: 50%;
 }
 
 #main {
+    position: relative;
     height: 90vmin;
     width: 160vmin;
-    backdrop-filter: brightness(0.5);
-    background: url('assets/valentin-muller-bWtd1ZyEy6w-unsplash.jpg') no-repeat fixed center / 90%;
     display: flex;
     gap: 0;
-    border: 12px solid rgba(255, 255, 255, 0.7);
+    border: 12px solid rgba(209, 209, 209, 0.5);
     border-radius: 10px;
-}
+  }
+  
+  #mainOverlay {
+    transition: 6s;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: brightness(0.6);
+    z-index: -1; 
+  }
 
 #left-section {
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(2px);
+    background-color: rgba(122, 122, 122, 0.2);
+    backdrop-filter: blur(5px);
+    border-right: 2px solid rgba(209, 209, 209, 0.5);
     width: 285px;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
     padding: 20px 0;
+}
+#wind {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-weight: 200;
+}
+#wind svg {
+    width: 20px;
 }
 #current-temp {
     font-size: 4.5rem;
@@ -47,9 +70,34 @@ body {
 #current-weather {
     text-align: center;
 }
+#current-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#searchbar {
+    margin: 0 auto;
+}
+#location {
+    outline: none;
+    width: 215px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 0 10px;
+    color: rgb(192, 191, 191);
+    border: 2px solid rgba(209, 209, 209, 0.5)
+}
+#location:active {
+    border: 2px solid rgba(233, 233, 233, 0.5);
+    outline: none
+}
+#location::placeholder {
+    color: rgb(137, 137, 137);
+}
 #forecast-days-container {
     border-top: 1px solid white;
-    width: 230px;
+    width: 240px;
     margin-top: 15px;
     display: flex;
     flex-direction: column;
@@ -58,17 +106,19 @@ body {
 #forecast-days-container > h2{
     font-size: 1.2rem;
     font-weight: 500;
+    margin: 30px 0;
 }
 
 #forecast-days {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 16px;
 }
 .forecast-day {
     display: flex;
     align-items: center;
+    font-weight: 300;
     width: 230px;
     gap: 5px;
     margin-right: 5px;
@@ -91,7 +141,7 @@ body {
     flex-direction: column;
     justify-content: flex-end;
     overflow: hidden;
-    padding: 35px 30px;
+    padding: 35px 30px 15px 30px;
 }
 #date-time {
     margin-bottom: auto;
@@ -101,7 +151,7 @@ body {
 }
 #time {
     padding-right: 8px;
-    border-right: 1px solid black;
+    border-right: 2px solid rgba(209, 209, 209, 0.5);
 }
 #track-container {
     overflow-x: hidden;
@@ -119,7 +169,7 @@ body {
 #condition {
     font-size: 4rem;
     font-weight: 400;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid rgba(209, 209, 209, 0.5);
     padding-bottom: 20px;
     margin-bottom: 20px;
 }
@@ -127,9 +177,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(128, 128, 128, 0.521);
+    background-color: rgba(162, 162, 162, 0.096);
+    backdrop-filter: blur(8px);
     border-radius: 8px;
     user-select: none;
+    width: 90px;
     transition: 250ms;
 }
 .hourContainer:hover {
@@ -137,20 +189,20 @@ body {
 }
 .forecast-hour {
     margin: 10px;
-    width: 70px;
+    width: 50px;
     text-align: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgba(209, 209, 209, 0.5);
     padding-bottom: 5px;
 
 }
 .hourTemp {
-    margin-bottom: 15px;
+    margin: 5px 0 12px 0;
     font-size: 1.2rem;
 }
 .hourConditionIcon {
     width: 50px;
     aspect-ratio: 1 / 1;
-    background-color: rgba(128, 128, 128, 0.521);
+    background-color: rgba(128, 128, 128, 0.104);
     border-radius: 5px;
     user-select: none;
 }

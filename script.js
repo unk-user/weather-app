@@ -23,6 +23,7 @@ class WeatherService {
         const city = weatherData.location.name;
 
         const condition = weatherData.current.condition.text;
+        const conditionCode = weatherData.current.condition.code;
         const icon = weatherData.current.condition.icon;
 
         const temperatureCelsius = weatherData.current.temp_c;
@@ -30,7 +31,7 @@ class WeatherService {
         const windVelocity = weatherData.current.wind_kph;
 
         return {
-            country, time, city, condition, icon, temperatureCelsius, windDirection, windVelocity
+            country, time, city, condition, conditionCode, icon, temperatureCelsius, windDirection, windVelocity
         }
     }
     processForecast(weatherData) {
@@ -86,6 +87,8 @@ const condition = document.querySelector('#condition');
 const todaysDate = document.querySelector('#date');
 const currentTime = document.querySelector('#time');
 const forecastToday = document.querySelector('#forecast-today');
+const body = document.querySelector('body');
+const mainOverlay = document.querySelector('#mainOverlay');
 
 function expandDirection(abbreviation) {
     const directionMap = {
@@ -198,6 +201,12 @@ const loadForecastHours = (todaysForecast) => {
 const loadWeatherElements = async (city) => {
     const processedWeatherData = await weatherService.fetchProcessedWeather(city);
 
+    const conditionCode = processedWeatherData.currentWeather.conditionCode;
+
+
+    body.style.background = `Url(assets/${classifyWeather(conditionCode)}.jpg) no-repeat fixed center / 160%`;
+    mainOverlay.style.background = `Url(assets/${classifyWeather(conditionCode)}.jpg) no-repeat fixed center / 90%`;
+
     loadCurrentWeather(processedWeatherData.currentWeather);
     loadForecastDays(processedWeatherData.forecast);
     loadForecastHours(processedWeatherData.todaysForecast);
@@ -239,6 +248,61 @@ track.onmousemove = e => {
     track.dataset.percentage = nextPercentage;
 
     forecastToday.style.transform = `translateX(-${nextPercentage}%)`;
+}
+
+function classifyWeather(conditionCode) {
+    const weatherGroups = {
+        '1000': 'Clear',
+        '1003': 'Cloudy',
+        '1006': 'Cloudy',
+        '1009': 'Cloudy',
+        '1030': 'Mist',
+        '1063': 'Rain',
+        '1066': 'Snow',
+        '1069': 'Sleet',
+        '1072': 'Sleet',
+        '1087': 'Thunderstorms',
+        '1114': 'neutral',
+        '1117': 'neutral',
+        '1135': 'Mist',
+        '1147': 'neutral',
+        '1150': 'Rain',
+        '1153': 'Rain',
+        '1168': 'Sleet',
+        '1171': 'Sleet',
+        '1180': 'Rain',
+        '1183': 'Rain',
+        '1186': 'Rain',
+        '1189': 'Rain',
+        '1192': 'Rain',
+        '1195': 'Rain',
+        '1198': 'Sleet',
+        '1201': 'Sleet',
+        '1204': 'Sleet',
+        '1207': 'Sleet',
+        '1210': 'Snow',
+        '1213': 'Snow',
+        '1216': 'Snow',
+        '1219': 'Snow',
+        '1222': 'Snow',
+        '1225': 'Snow',
+        '1237': 'neutral',
+        '1240': 'neutral',
+        '1243': 'neutral',
+        '1246': 'neutral',
+        '1249': 'neutral',
+        '1252': 'neutral',
+        '1255': 'neutral',
+        '1258': 'neutral',
+        '1261': 'neutral',
+        '1264': 'neutral',
+        '1273': 'Thunderstorms',
+        '1276': 'Thunderstorms',
+        '1279': 'Thunderstorms',
+        '1282': 'Thunderstorms',
+      };
+
+      return weatherGroups[conditionCode];
 }
 
 
