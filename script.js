@@ -5,7 +5,7 @@ class WeatherService {
 
     async fetchWeather(city) {
         try {
-            const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${this.apiKey}&q=${city}&days=5`;
+            const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${this.apiKey}&q=${city}&days=5`;
 
             const response = await fetch(apiUrl);
             const data = await response.json();
