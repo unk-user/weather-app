@@ -12,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(5px) brightness(0.6);
-    transition: 6s;
+    transition: background-image 6s;
     background-position: 50%;
 }
 
@@ -27,7 +27,7 @@ body {
   }
   
   #mainOverlay {
-    transition: 6s;
+    transition: background-image 6s;
     content: '';
     position: absolute;
     top: 0;
@@ -193,7 +193,7 @@ body {
     text-align: center;
     border-bottom: 1px solid rgba(209, 209, 209, 0.5);
     padding-bottom: 5px;
-
+    font-size: 1.1rem;
 }
 .hourTemp {
     margin: 5px 0 12px 0;
@@ -208,4 +208,183 @@ body {
 }
 .forecast-max, .forecast-min {
     text-align: center;
+}
+
+@media (max-width: 1160px) {
+    html {
+        font-size: 14px
+    }
+    #main {
+        width: 140vmin;
+        height: 80vmin;
+    }
+    #forecast-days {
+        gap: 10px;
+    }
+    .forecast-day {
+        width: 200px;
+    }
+}
+@media (max-width: 930px){
+    html {
+        font-size: 12px
+    }
+    #main {
+        width: 120vmin;
+        height: 80vmin;
+    }
+    #left-section {
+        width: 270px;
+    }
+    #right-section{
+        width: calc(120vmin - 270px);
+    }
+    #forecast-days {
+        gap: 10px;
+    }
+    .forecast-day {
+        width: 200px;
+    }
+}
+@media (max-width: 810px){
+    html {
+        font-size: 12px
+    }
+    #main {
+        width: 90vmin;
+        height: 90%;
+        flex-direction: column;
+    }
+    #left-section {
+        box-sizing: border-box;
+        width: 100%;
+        height: 200px;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 5px 20px 10px 50px;
+        border: 0;
+    }
+    #right-section{
+        width: 100%;
+        height: 500px;
+        box-sizing: border-box;
+    }
+    #location {
+        width: 180px;
+    }
+    #searchbar {
+        position: absolute;
+        top: 10px;
+        left: 35px;
+    }
+    #forecast-days {
+        gap: 5px;
+    }
+    #forecast-days-container{
+        border: 0;
+        border-left: 1px solid white;
+    }
+    #forecast-days-container > h2{
+        display: none;
+    }
+    .forecast-day {
+        width: 200px;
+    }
+    .forecastDay-icon {
+        width: 25px;
+    }
+}
+@media (max-width: 540px){
+    html {
+        font-size: 11px
+    }
+    #main {
+        width: 90vmin;
+        height: 90%;
+        flex-direction: column;
+    }
+    #left-section {
+        box-sizing: border-box;
+        width: 100%;
+        height: 200px;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 5px 0 10px 30px;
+        border: 0;
+    }
+    #right-section{
+        width: 100%;
+        height: 500px;
+        box-sizing: border-box;
+    }
+    #location {
+        width: 180px;
+    }
+    #searchbar {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+    }
+    #forecast-days {
+        gap: 5px;
+    }
+    #forecast-days-container{
+        border: 0;
+        width: 220px;
+        padding-left: 20px;
+    }
+}
+@media (max-width: 460px){
+    html {
+        font-size: 11px
+    }
+    #main {
+        width: 300px;
+        height: 550px;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    #mainOverlay {
+        display: none;
+    }
+    #current-temp {
+        font-size: 5.5rem;
+    }
+    #left-section {
+        box-sizing: border-box;
+        width: 100%;
+        height: 200px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 0;
+        border: 0;
+    }
+    #right-section{
+        width: 100%;
+        height: 500px;
+        box-sizing: border-box;
+    }
+    #location {
+        width: 180px;
+        margin: auto;
+    }
+    #searchbar {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    #forecast-days {
+        gap: 5px;
+    }
+    #forecast-days-container{
+        display: none;
+    }
+    .hourContainer {
+        height: 90px;
+        width: 60px
+    }
+    .hourConditionIcon {
+        width: 30px;
+    }
 }

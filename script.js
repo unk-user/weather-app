@@ -206,8 +206,8 @@ const loadWeatherElements = async (city) => {
     const conditionCode = processedWeatherData.currentWeather.conditionCode;
 
 
-    body.style.background = `Url(assets/${classifyWeather(conditionCode)}.jpg) no-repeat fixed center / 160%`;
-    mainOverlay.style.background = `Url(assets/${classifyWeather(conditionCode)}.jpg) no-repeat fixed center / 90%`;
+    body.style.background = `Url(assets/${classifyWeather(conditionCode)}.jpg) no-repeat fixed center`;
+    mainOverlay.style.background = `Url(assets/${classifyWeather(conditionCode)}.jpg) no-repeat fixed center / 100%`;
 
     loadCurrentWeather(processedWeatherData.currentWeather);
     loadForecastDays(processedWeatherData.forecast);
