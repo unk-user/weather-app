@@ -19,24 +19,25 @@ body {
 #main {
     position: relative;
     height: 90vmin;
-    width: 160vmin;
+    width: 75vw;
     display: flex;
     gap: 0;
     border: 12px solid rgba(209, 209, 209, 0.5);
     border-radius: 10px;
-  }
+}
   
-  #mainOverlay {
+#mainOverlay {
     transition: background-image 6s;
     content: '';
     position: absolute;
+    background-size: 100%;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     filter: brightness(0.6);
     z-index: -1; 
-  }
+}
 
 #left-section {
     background-color: rgba(122, 122, 122, 0.2);
@@ -136,7 +137,7 @@ body {
 }
 
 #right-section {
-    width: calc(160vmin - 285px);
+    width: calc(75vw - 285px);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -215,7 +216,7 @@ body {
         font-size: 14px
     }
     #main {
-        width: 140vmin;
+        width: 70vw;
         height: 80vmin;
     }
     #forecast-days {
@@ -230,14 +231,14 @@ body {
         font-size: 12px
     }
     #main {
-        width: 120vmin;
+        width: 75vw;
         height: 80vmin;
     }
     #left-section {
         width: 270px;
     }
     #right-section{
-        width: calc(120vmin - 270px);
+        width: calc(75vw - 270px);
     }
     #forecast-days {
         gap: 10px;
@@ -251,7 +252,7 @@ body {
         font-size: 12px
     }
     #main {
-        width: 90vmin;
+        width: 90vw;
         height: 90%;
         flex-direction: column;
     }
@@ -266,7 +267,7 @@ body {
     }
     #right-section{
         width: 100%;
-        height: 500px;
+        height: calc(90vh - 200px);
         box-sizing: border-box;
     }
     #location {
@@ -314,7 +315,7 @@ body {
     }
     #right-section{
         width: 100%;
-        height: 500px;
+        height: calc(90vh - 200px);
         box-sizing: border-box;
     }
     #location {
@@ -336,11 +337,12 @@ body {
 }
 @media (max-width: 460px){
     html {
-        font-size: 11px
+        font-size: 12px
     }
     #main {
-        width: 300px;
-        height: 550px;
+        box-sizing: border-box;
+        width: 100vw;
+        height: 100vh;
         flex-direction: column;
         overflow: hidden;
     }
@@ -356,17 +358,18 @@ body {
         height: 200px;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: center;
         padding: 0;
         border: 0;
     }
     #right-section{
         width: 100%;
-        height: 500px;
+        height: calc(100vh - 220px);
         box-sizing: border-box;
     }
     #location {
-        width: 180px;
+        width: 250px;
+        height: 35px;
         margin: auto;
     }
     #searchbar {
@@ -381,8 +384,7 @@ body {
         display: none;
     }
     .hourContainer {
-        height: 90px;
-        width: 60px
+        width: 75px
     }
     .hourConditionIcon {
         width: 30px;
