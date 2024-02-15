@@ -161,6 +161,12 @@ body {
     display: flex;
     align-items: center;
 }
+#track-container:hover {
+    cursor: grab;
+}
+#track-container:active {
+    cursor: grabbing;
+}
 #forecast-today {
     display: flex;
     align-items: center;
